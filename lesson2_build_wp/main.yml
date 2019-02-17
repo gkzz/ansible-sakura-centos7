@@ -1,14 +1,79 @@
 - hosts: web
   user: root
   tasks:
-    - name: open http firewall port
+    - name: Open http firewall port
       firewalld:
         service: http
         permanent: true
         state: enabled
         immediate: yes # this is the firewall-cmd --reload
     
-    - name: Insall Apache
+    - name: Install Apache
       yum:
         name: httpd
         state: latest
+
+    - name: Install php
+      yum: 
+        name: "{{ php_packages }}"
+        state: latest
+    
+    - name: Configure timezone setting
+      ini_file: >
+        dest=/etc/php.ini
+        section=Date
+        option=date.timezone
+        value="{{time_zone_value}}"
+    
+    - name: Create test page with php
+      copy: >
+        src=roles/phpinfo.php
+        dest=/var/www/html/phpinfo.php
+    
+    - name: Start httpd
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Install mariadb database
+      yum:
+        name: "{{ mariadb_packages }}"
+        state:  latest
+    
+    - name: Enabled mariadb
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
+        
+    - name: Create wp'sdatebase
+      mysql_db:
+        name: wordpress
+        state: present
+    
+    - name: create new user
+      shell: mysql -e "grant all privileges on wordpress.* to wordpress@localhost identified by 'password'"
+
+    - name: dowonload wordpress
+      get_url:
+        url: "{{wp_latest_url}}"
+        dest: /tmp/wordpress.tar.gz
+    
+    - name: unarchive wordpress
+      unarchive: 
+        src: /tmp/wordpress.tar.gz
+        dest: /var/www/html/ 
+        copy: no
+    
+    - name: Change wp's owner from wp to Apache
+      file:
+        path: /var/www/html/wordpress
+        owner: apache
+        group: apache
+        recurse: yes
+    
+    - name: Restart httpd
+      service:
+        name: httpd
+        state: restarted

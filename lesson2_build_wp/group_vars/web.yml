@@ -1,1 +1,13 @@
 wp_latest_url: https://wordpress.org/latest.tar.gz
+
+time_zone_value: Asia/Tokyo
+
+php_packages:
+  - php
+  - php-mysql
+
+
+mariadb_packages:
+  - mariadb
+  - mariadb-server
+  - MySQL-python
