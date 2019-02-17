@@ -61,13 +61,13 @@ UBUNTU_CODENAME=xenial
 ```
 
 ## Sources;
-* Ansible Documentation
+* Ansible Documentation \
 https://docs.ansible.com/ansible/latest/index.html
 
-* 実践！　AnsibleによるWordPress環境構築
+* 実践！　AnsibleによるWordPress環境構築 \
 https://thinkit.co.jp/article/9697
 
-* Learning Ansible with CentOS 7 Linux
+* Learning Ansible with CentOS 7 Linux \
 https://medium.com/@brad.simonin/learning-ansible-with-centos-7-linux-12461043fd02
 
 
