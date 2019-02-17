@@ -1,0 +1,5 @@
+- hosts: web
+  user: root
+  tasks:
+  - name: output-message
+    debug: msg="Hello Sakura!"

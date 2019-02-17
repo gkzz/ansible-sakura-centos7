@@ -1,0 +1,10 @@
+- hosts: web
+  user: root
+  tasks:
+  - name: copy template files
+    template:
+      src: ./templates/05_cp_template.j2
+      dest: /opt/05_cp_template.html
+      owner: root
+      group: root
+      mode: 0755

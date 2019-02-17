@@ -1,0 +1,14 @@
+# cat 05_cp_template.html
+Hello Sakura!
+This line won't be changed
+
+######################################
+
+for-loop example
+
+bob 's name : Bob Bananarama
+bob 's telephone : 987-654-3210
+--------------------------
+alice 's name : Alice Appleworth
+alice 's telephone : 123-456-7890
+--------------------------

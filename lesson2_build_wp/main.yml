@@ -1,0 +1,14 @@
+- hosts: web
+  user: root
+  tasks:
+    - name: open http firewall port
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: yes # this is the firewall-cmd --reload
+    
+    - name: Insall Apache
+      yum:
+        name: httpd
+        state: latest

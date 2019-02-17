@@ -1,0 +1,11 @@
+#sources;
+#yum – Manages packages with the yum package manager
+#https://docs.ansible.com/ansible/latest/modules/yum_module.html?highlight=yum
+
+- hosts: web
+  user: root
+  tasks:
+  - name: upgrade all packages (yum -y update)
+    yum:
+      name: '*'
+      state: latest
