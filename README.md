@@ -2,7 +2,7 @@
 
 Ansible Tutorial For Beginners with @sakura_vps
 
-Special thanks to @sieg_tweet
+Special thanks to @sieg_tweet & @mmumshad
 
 ## Technologies used
 * Windows Subsystem for Linux
@@ -63,6 +63,9 @@ UBUNTU_CODENAME=xenial
 ## Sources;
 * Ansible Documentation   
 https://docs.ansible.com/ansible/latest/index.html
+
+* Ansible Advanced - Hands-On - DevOps | Udemy  
+https://www.udemy.com/learn-ansible-advanced/
 
 * 実践！　AnsibleによるWordPress環境構築   
 https://thinkit.co.jp/article/9697
